@@ -7,7 +7,7 @@
     <title>Class and Objects</title>
 </head>
 <body>
-
+  
 <?php
 
 #Class and object
