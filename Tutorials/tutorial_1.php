@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <title>Tutorial 1</title>
 </head>
+<style>
+    td{
+        border: none;
+    }
+</style>
 <body>
 
   <h3>Chess Board</h3>

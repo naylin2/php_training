@@ -17,7 +17,7 @@ function getAge($dob)
         return 'You are not born yet';
     }
     $diff = $today->diff($bday);
-    return 'Your Current Age is : ' . $diff->y . ' Years, ' . $diff->m . ' month, ' . $diff->d . ' days';
+    return 'Your Current Age is : ' . $diff->y . ' Years';
 }
 ?>
     <h1 class="center">Calculate Age</h1>

@@ -13,24 +13,24 @@
 
 <?php
 echo "<pre>";
-for ($i = 1; $i < 6; $i++) {
-    for ($j = $i; $j < 6; $j++) {
+for ($row = 1; $row < 6; $row++) {
+    for ($col = $row; $col < 6; $col++) {
         echo "&nbsp;&nbsp;";
     }
 
-    for ($j = 2 * $i - 1; $j > 0; $j--) {
+    for ($col = 2 * $row - 1; $col > 0; $col--) {
         echo ("&nbsp;*");
     }
 
     echo "<br>";
 }
 $n = 6;
-for ($i = 6; $i > 0; $i--) {
-    for ($j = $n - $i; $j > 0; $j--) {
+for ($row = 6; $row > 0; $row--) {
+    for ($col = $n - $row; $col > 0; $col--) {
         echo "&nbsp;&nbsp;";
     }
 
-    for ($j = 2 * $i - 1; $j > 0; $j--) {
+    for ($col = 2 * $row - 1; $col > 0; $col--) {
         echo ("&nbsp;*");
     }
 
