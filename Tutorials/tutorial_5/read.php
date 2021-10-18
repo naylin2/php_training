@@ -5,9 +5,29 @@
   <meta charset="utf-8">
   <title>Tutorial 5</title>
 </head>
+<style>
+body{
+    background: #fafafa;
+    font-family: sans-serif;
+    color: #242424;
+}
+.container{
+    width: 50%;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.10);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+}
+h2{
+    color: #2e7eff;
+}
+</style>
 <body>
 
-<h2>Txt</h2>
+<div class="container">
+<h2>Reading TEXT Files</h2>
 
 <?php
 $myfile = fopen("test.txt", "r");
@@ -17,7 +37,10 @@ while (!feof($myfile)) {
 fclose($myfile);
 ?>
 
-<h2>Excel</h2>
+</div>
+
+<div class="container">
+<h2>Reading EXCEL Files</h2>
 
 <?php
 require_once "src/SimpleXLSX.php";
@@ -33,7 +56,10 @@ if ($xlsx = SimpleXLSX::parse('test.xlsx')) {
 }
 ?>
 
-<h2>CSV</h2>
+</div>
+
+<div class="container">
+<h2>Reading CSV Files</h2>
 
 <?php
 require_once "src/SimpleCSV.php";
@@ -44,7 +70,10 @@ if ($csv = SimpleCSV::import('test.csv')) {
 echo "<pre>";
 ?>
 
-<h2>Doc</h2>
+</div>
+
+<div class="container">
+<h2>Reading DOC Files</h2>
 
 <?php
 function read_doc_file($filename)
@@ -66,6 +95,7 @@ function read_doc_file($filename)
 $filename = "test.doc";
 echo read_doc_file($filename);
 ?>
+</div>
 
 </body>
 </html>
