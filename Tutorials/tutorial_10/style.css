@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+html,body{
+    background: #f7e2d1;
+    font-family: 'Poppins', sans-serif;
+}
+::selection{
+    color: #fff;
+    background: #f7e2d1;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container .form{
+    background: #f7e2d1;
+    padding: 30px 35px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(211, 104, 94, 0.2), 0 6px 20px 0 rgba(211, 104, 94, 0.19);
+    border-radius: 20px;
+}
+.container .form form .form-control{
+    background: #fff2e8;
+    border-color: #fff2e8;
+    height: 40px;
+    font-size: 15px;
+}
+.container .form form .form-control:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: #d3685e;
+}
+.container .form form .form-control:active{
+    box-shadow: none;
+    outline: none;
+    border-color: #d3685e;
+}
+.container .form form .forget-pass{
+    margin: -15px 0 15px 0;
+}
+.container .form form .forget-pass a{
+   font-size: 15px;
+}
+.container .form form .button{
+    background: #d3685e;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.container .form form .button:hover{
+    background: #d3685e;
+}
+.container .form form .button:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: #d3685e;
+}
+.container .form form .link{
+    padding: 5px 0;
+}
+.container .form form .link a{
+    color: #d3685e;
+}
+.container .login-form form p{
+    font-size: 14px;
+}
+.container .row .alert{
+    font-size: 14px;
+}

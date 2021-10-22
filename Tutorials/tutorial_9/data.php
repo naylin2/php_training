@@ -34,7 +34,6 @@ echo "<script>
                 data.addRow([my_2d[i][0], parseInt(my_2d[i][1]),parseInt(my_2d[i][2])]);
             }
        var options1 = {
-          title: 'Graph',
           hAxis: {title: 'Name',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0},
           height: 350,
@@ -46,10 +45,8 @@ echo "<script>
             chart.draw(data, options1);
 
        var options2 = {
-          title: 'Graph',
-          hAxis: {title: 'Name',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0},
-          height: 350,
+          height: 450,
           backgroundColor: '#f7e2d1',
           colors:['#d14234','#d3685e']
         };
@@ -78,7 +75,7 @@ echo "<script>
         }
         .wrapper{
             width: 60%;
-            margin: 30px auto;
+            margin: 20px auto 0px;
         }
         .btn{
             background: #d3685e;
@@ -95,9 +92,6 @@ echo "<script>
             outline: none;
             border-color: #d3685e;
         }
-        .chart{
-            margin-top: 50px;
-        }
     </style>
 </head>
 <body>
@@ -106,13 +100,13 @@ echo "<script>
             <h2 class="pull-left">Budget Details Column-Graph</h2>
             <a href="../tutorial_8/index.php" class="btn pull-right">Back to Table</a>
         </div>
-        <div id="chart_div" class="chart"></div>
+        <div id="chart_div"></div>
     </div>
     <div class="wrapper">
         <div class="mt-5 mb-3 clearfix">
             <h2 class="pull-left">Budget Details Bar-Graph</h2>
         </div>
-        <div id="chart_div2" class="chart"></div>
+        <div id="chart_div2"></div>
     </div>
 </body>
 </html>
