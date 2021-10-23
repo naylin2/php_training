@@ -63,11 +63,13 @@ if ($xlsx = SimpleXLSX::parse('test.xlsx')) {
 
 <?php
 require_once "src/SimpleCSV.php";
-echo "<pre>";
 if ($csv = SimpleCSV::import('test.csv')) {
-    print_r($csv);
+    echo '<table border="1" cellpadding="3" style="border-collapse: collapse">';
+    foreach ($csv as $row) {
+        echo '<tr><td>' . implode('</td><td>', $row) . '</td></tr>';
+    }
+    echo '</table>';
 }
-echo "<pre>";
 ?>
 
 </div>
