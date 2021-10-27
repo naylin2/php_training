@@ -2,9 +2,8 @@
 
 namespace App\Services;
 
-use App\Contracts\Services\TaskServiceInterface;
 use App\Contracts\Dao\TaskDaoInterface;
-use Illuminate\Http\Request;
+use App\Contracts\Services\TaskServiceInterface;
 use Illuminate\Support\Facades\Validator;
 
 class TaskService implements TaskServiceInterface
@@ -20,7 +19,7 @@ class TaskService implements TaskServiceInterface
      */
     public function __construct(TaskDaoInterface $taskDao)
     {
-      $this->taskDao = $taskDao;
+        $this->taskDao = $taskDao;
     }
 
     /**
@@ -29,13 +28,13 @@ class TaskService implements TaskServiceInterface
      */
     public function getTasks()
     {
-      return $this->taskDao->getTasks();
+        return $this->taskDao->getTasks();
     }
 
     /**
      * add new task
      */
-    public function addTask(Request $request)
+    public function addTask($request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
@@ -46,15 +45,14 @@ class TaskService implements TaskServiceInterface
                 ->withInput()
                 ->withErrors($validator);
         }
-        return $this->taskDao->addTask($request);
+        $this->taskDao->addTask($request);
     }
     /**
      * delete
      */
     public function deleteTask($id)
     {
-        return $this->taskDao->deleteTask($id);
+        $this->taskDao->deleteTask($id);
     }
-
 
 }

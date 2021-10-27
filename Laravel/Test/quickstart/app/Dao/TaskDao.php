@@ -3,8 +3,6 @@ namespace App\Dao;
 
 use App\Contracts\Dao\TaskDaoInterface;
 use App\Models\Task;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class TaskDao implements TaskDaoInterface
 {
@@ -20,13 +18,11 @@ class TaskDao implements TaskDaoInterface
     /**
      * Add new task
      */
-    public function addTask(Request $request)
+    public function addTask($request)
     {
         $task = new Task;
         $task->name = $request->name;
         $task->save();
-
-        return redirect('/');
     }
     /**
      * delete
@@ -34,7 +30,5 @@ class TaskDao implements TaskDaoInterface
     public function deleteTask($id)
     {
         Task::findOrFail($id)->delete();
-
-        return redirect('/');
     }
 }

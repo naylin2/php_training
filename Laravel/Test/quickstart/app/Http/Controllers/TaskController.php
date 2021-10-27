@@ -2,29 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use App\Contracts\Services\TaskServiceInterface;
+use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
-    
-  /**
-   * task interface
-   */
-  private $taskInterface;
 
-  /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
-  public function __construct(TaskServiceInterface $taskServiceInterface)
-  {
-    $this->taskInterface = $taskServiceInterface;
-  }
+    /**
+     * task interface
+     */
+    private $taskInterface;
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(TaskServiceInterface $taskServiceInterface)
+    {
+        $this->taskInterface = $taskServiceInterface;
+    }
 
     /**
      * Display all tasks.
@@ -42,8 +40,10 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      */
     public function addTask(Request $request)
-    {   
-        return $this->taskInterface->addTask($request);
+    {
+        $this->taskInterface->addTask($request);
+
+        return redirect('/');
     }
     /**
      * delete a task
@@ -52,6 +52,8 @@ class TaskController extends Controller
      */
     public function deleteTask($id)
     {
-        return $this->taskInterface->deleteTask($id);
+        $this->taskInterface->deleteTask($id);
+
+        return redirect('/');
     }
 }
