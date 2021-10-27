@@ -36,15 +36,6 @@ class TaskService implements TaskServiceInterface
      */
     public function addTask($request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('/')
-                ->withInput()
-                ->withErrors($validator);
-        }
         $this->taskDao->addTask($request);
     }
     /**

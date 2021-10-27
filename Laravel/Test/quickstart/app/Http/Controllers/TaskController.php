@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\Services\TaskServiceInterface;
+use App\Http\Requests\CreateTaskRequest;
 use App\Models\Task;
-use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -39,8 +39,9 @@ class TaskController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function addTask(Request $request)
+    public function addTask(CreateTaskRequest $request)
     {
+        $validated = $request->validated();
         $this->taskInterface->addTask($request);
 
         return redirect('/');
