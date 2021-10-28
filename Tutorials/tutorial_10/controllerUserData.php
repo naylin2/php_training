@@ -43,12 +43,12 @@ if (isset($_POST['signup'])) {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'sender@gmail.com';
-                $mail->Password = 'passwordhere';
+                $mail->Username = 'test@gmail.com';
+                $mail->Password = 'password';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;
 
-                $mail->setFrom('sender@gmail.com', 'Nay Lin Htoo');
+                $mail->setFrom('test@gmail.com', 'Nay Lin Htoo');
                 $mail->addAddress($email);
                 $mail->addReplyTo($email);
 
@@ -143,12 +143,12 @@ if (isset($_POST['check-email'])) {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'sender@gmail.com';
-                $mail->Password = 'passwordhere';
+                $mail->Username = 'test@gmail.com';
+                $mail->Password = 'password';
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;
 
-                $mail->setFrom('sender@gmail.com', 'Nay Lin Htoo');
+                $mail->setFrom('test@gmail.com', 'Nay Lin Htoo');
                 $mail->addAddress($email);
                 $mail->addReplyTo($email);
 
