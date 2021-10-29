@@ -13,6 +13,12 @@ interface ProductServiceInterface
     public function getProducts();
 
     /**
+     * To get trashproducts
+     * @return $products
+     */
+    public function getTrashProducts();
+
+    /**
      * Add new product
      * @param $request
      */

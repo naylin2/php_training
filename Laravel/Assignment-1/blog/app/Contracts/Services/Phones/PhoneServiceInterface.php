@@ -13,6 +13,12 @@ interface PhoneServiceInterface
     public function getPhones();
 
     /**
+     * To get trashphones
+     * @return $phones
+     */
+    public function getTrashPhones();
+
+    /**
      * Add new phone
      * @param $request
      */

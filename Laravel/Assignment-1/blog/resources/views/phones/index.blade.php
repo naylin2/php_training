@@ -5,6 +5,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('phones.create') }}"> Create New Phone</a>
+                <a class="btn btn-dark" href="{{ url('/trash/phones') }}"> Trash Bin</a>
             </div>
         </div>
     </div>
@@ -41,7 +42,7 @@
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
             </td>
         </tr>

@@ -20,4 +20,7 @@ Route::get('/', function () {
 });
 
 Route::resource('phones', PhoneController::class);
+Route::get('/trash/phones', [PhoneController::class, 'showTrash'])->name('show.trash');
+
 Route::resource('products', ProductController::class);
+Route::get('/trash/products', [ProductController::class, 'showTrash'])->name('show.trash');

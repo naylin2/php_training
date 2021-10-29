@@ -17,6 +17,16 @@ class ProductDao implements ProductDaoInterface
     }
 
     /**
+     * To get trashproducts
+     * @return $products
+     */
+    public function getTrashProducts()
+    {
+        $products = Product::onlyTrashed()->get();
+        return $products;
+    }
+
+    /**
      * Add new product
      * @param $request
      */

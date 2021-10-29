@@ -5,15 +5,10 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-dark" href="{{ url('/trash/products') }}"> Trash Bin</a>
             </div>
         </div>
     </div>
-   
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success mt-3">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
    
     <table class="table table-bordered mt-5">
         <tr>
@@ -41,7 +36,7 @@
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
             </td>
         </tr>

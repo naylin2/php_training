@@ -17,6 +17,16 @@ class PhoneDao implements PhoneDaoInterface
     }
 
     /**
+     * To get trashphones
+     * @return $phones
+     */
+    public function getTrashPhones()
+    {
+        $phones = Phone::onlyTrashed()->get();
+        return $phones;
+    }
+
+    /**
      * Add new phone
      * @param $request
      */

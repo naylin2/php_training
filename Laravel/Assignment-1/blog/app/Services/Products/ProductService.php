@@ -31,6 +31,15 @@ class ProductService implements ProductServiceInterface
         return $this->productDao->getProducts();
     }
 
+    /**
+     * To get trashproducts
+     * @return $products
+     */
+    public function getTrashProducts()
+    {
+        return $this->productDao->getTrashProducts();
+    }
+
 
     /**
      * Add new product

@@ -31,6 +31,15 @@ class PhoneService implements PhoneServiceInterface
         return $this->phoneDao->getPhones();
     }
 
+    /**
+     * To get trashphones
+     * @return $phones
+     */
+    public function getTrashPhones()
+    {
+        return $this->phoneDao->getTrashPhones();
+    }
+
 
     /**
      * Add new phone

@@ -32,6 +32,17 @@ class ProductController extends Controller
         return view('products.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
+    /**
+     * Display softdeleted list
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showTrash()
+    {  
+        $products = $this->productInterface->getTrashProducts();
+
+        return view('products.trash', compact('products'));
+    }
 
     /**
      * Show the form for creating a new resource.

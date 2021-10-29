@@ -32,6 +32,17 @@ class PhoneController extends Controller
         return view('phones.index', compact('phones'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
+    /**
+     * Display softdeleted list
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showTrash()
+    {  
+        $phones = $this->phoneInterface->getTrashPhones();
+
+        return view('phones.trash', compact('phones'));
+    }
 
     /**
      * Show the form for creating a new resource.
