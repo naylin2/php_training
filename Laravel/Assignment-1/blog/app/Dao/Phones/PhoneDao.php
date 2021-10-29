@@ -3,6 +3,8 @@ namespace App\Dao\Phones;
 
 use App\Contracts\Dao\Phones\PhoneDaoInterface;
 use App\Models\Phone;
+use App\Imports\PhonesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PhoneDao implements PhoneDaoInterface
 {
@@ -51,5 +53,14 @@ class PhoneDao implements PhoneDaoInterface
     public function deletePhone($phone)
     {
         $phone->delete();
+    }
+
+    /**
+     * import
+     * @param $request
+     */
+    public function importExcel($request)
+    {
+        Excel::import(new PhonesImport, $request->file('file')->store('temp'));
     }
 }

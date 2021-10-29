@@ -3,7 +3,21 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
+            <div class="pull-left col-lg-6 pl-0">
+                <form action="{{ url('phone-import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group mb-4 col-lg-6 pull-left pl-0">
+                        <div class="custom-file text-left">
+                        <input type="file" name="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file to import</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Import</button>
+                    <a class="btn btn-success ml-3" href="{{ url('/export-phones') }}"> Export</a>
+                </form>
+            </div>
             <div class="pull-right">
+                <a class="btn btn-info" href="{{ route('products.index') }}"> Products</a>
                 <a class="btn btn-success" href="{{ route('phones.create') }}"> Create New Phone</a>
                 <a class="btn btn-dark" href="{{ url('/trash/phones') }}"> Trash Bin</a>
             </div>

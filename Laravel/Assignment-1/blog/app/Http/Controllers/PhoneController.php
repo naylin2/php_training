@@ -6,6 +6,9 @@ use App\Contracts\Services\Phones\PhoneServiceInterface;
 use App\Http\Requests\CreateProductRequest;
 use App\Models\Phone;
 use Illuminate\Http\Request;
+use App\Exports\PhonesExport;
+use App\Imports\PhonesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PhoneController extends Controller
 {
@@ -116,5 +119,23 @@ class PhoneController extends Controller
         $this->phoneInterface->deletePhone($phone);
 
         return redirect()->route('phones.index');
+    }
+    
+    /**
+     * Export to excel
+     *
+     */
+    public function export() 
+    {
+        return Excel::download(new PhonesExport, 'phones.xlsx');
+    }
+   
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function fileImport(Request $request) 
+    {
+        $this->phoneInterface->importExcel($request);
+        return back();
     }
 }

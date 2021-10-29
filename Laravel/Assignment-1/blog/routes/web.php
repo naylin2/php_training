@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('phones.index');
 });
 
 Route::resource('phones', PhoneController::class);
 Route::get('/trash/phones', [PhoneController::class, 'showTrash'])->name('show.trash');
+Route::get('/export-phones', [PhoneController::class, 'export']);
+Route::post('phone-import', [PhoneController::class, 'fileImport'])->name('file-import');
 
 Route::resource('products', ProductController::class);
 Route::get('/trash/products', [ProductController::class, 'showTrash'])->name('show.trash');
+

@@ -35,4 +35,10 @@ interface PhoneDaoInterface
      * @param $phone
      */
     public function deletePhone($phone);
+
+    /**
+     * import
+     * @param $request
+     */
+    public function importExcel($request);
 }

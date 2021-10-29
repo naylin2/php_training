@@ -69,4 +69,13 @@ class PhoneService implements PhoneServiceInterface
     {
         $this->phoneDao->deletePhone($phone);
     }
+    
+    /**
+     * import Excel
+     * @param $request
+     */
+    public function importExcel($request)
+    {
+        $this->phoneDao->importExcel($request);
+    }
 }
