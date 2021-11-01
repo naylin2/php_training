@@ -41,4 +41,19 @@ interface PhoneServiceInterface
      * @param $request
      */
     public function importExcel($request);
+    /**
+     * search date
+     * @param $request
+     */
+    public function searchDate($request);
+    /**
+     * search name
+     * @param $request
+     */
+    public function searchName($request);
+    /**
+     * search detail
+     * @param $request
+     */
+    public function searchDetail($request);
 }

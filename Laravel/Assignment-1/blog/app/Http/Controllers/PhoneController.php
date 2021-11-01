@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\Services\Phones\PhoneServiceInterface;
+use App\Exports\PhonesExport;
 use App\Http\Requests\CreateProductRequest;
 use App\Models\Phone;
 use Illuminate\Http\Request;
-use App\Exports\PhonesExport;
-use App\Imports\PhonesImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PhoneController extends Controller
@@ -33,7 +32,7 @@ class PhoneController extends Controller
         $phones = $this->phoneInterface->getPhones();
 
         return view('phones.index', compact('phones'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);
+            ->with('i');
     }
     /**
      * Display softdeleted list
@@ -41,7 +40,7 @@ class PhoneController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showTrash()
-    {  
+    {
         $phones = $this->phoneInterface->getTrashPhones();
 
         return view('phones.trash', compact('phones'));
@@ -120,22 +119,53 @@ class PhoneController extends Controller
 
         return redirect()->route('phones.index');
     }
-    
+
     /**
      * Export to excel
      *
      */
-    public function export() 
+    public function export()
     {
         return Excel::download(new PhonesExport, 'phones.xlsx');
     }
-   
+
     /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function fileImport(Request $request) 
+     * @return \Illuminate\Support\Collection
+     */
+    public function fileImport(Request $request)
     {
         $this->phoneInterface->importExcel($request);
         return back();
     }
+
+    /**
+     * @return $phones from input duration
+     */
+    public function searchDate(Request $request)
+    {
+        $phones = $this->phoneInterface->searchDate($request);
+        return view('phones.index', compact('phones'))
+            ->with('i');
+    }
+    /**
+     * search name
+     * @param $request
+     */
+    public function searchName(Request $request)
+    {
+        $phones = $this->phoneInterface->searchName($request);
+        return view('phones.index', compact('phones'))
+            ->with('i');
+    }
+    /**
+     * search detail
+     * @param $request
+     */
+    public function searchDetail(Request $request)
+    {
+        $phones = $this->phoneInterface->searchDetail($request);
+        return view('phones.index', compact('phones'))
+            ->with('i');
+    }
+
 }

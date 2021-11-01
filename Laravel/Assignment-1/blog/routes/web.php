@@ -21,6 +21,9 @@ Route::get('/', function () {
 
 Route::resource('phones', PhoneController::class);
 Route::get('/trash/phones', [PhoneController::class, 'showTrash'])->name('show.trash');
+Route::get('/search/phones', [PhoneController::class, 'searchDate'])->name('search.date');
+Route::get('/search.name/phones', [PhoneController::class, 'searchName'])->name('search.name');
+Route::get('/search.detail/phones', [PhoneController::class, 'searchDetail'])->name('search.name');
 Route::get('/export-phones', [PhoneController::class, 'export']);
 Route::post('phone-import', [PhoneController::class, 'fileImport'])->name('file-import');
 

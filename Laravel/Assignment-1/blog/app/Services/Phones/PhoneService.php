@@ -78,4 +78,31 @@ class PhoneService implements PhoneServiceInterface
     {
         $this->phoneDao->importExcel($request);
     }
+    /**
+     * search date
+     * @param $request
+     */
+    public function searchDate($request)
+    {
+        $phones = $this->phoneDao->searchDate($request);
+        return $phones;
+    }
+    /**
+     * search name
+     * @param $request
+     */
+    public function searchName($request)
+    {
+        $phones = $this->phoneDao->searchName($request);
+        return $phones;
+    }
+    /**
+     * search detail
+     * @param $request
+     */
+    public function searchDetail($request)
+    {
+        $phones = $this->phoneDao->searchDetail($request);
+        return $phones;
+    }
 }
