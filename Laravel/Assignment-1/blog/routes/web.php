@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+//Practise Mail
+Route::get('/sendhtmlemail',[MailController::class, 'html_email']);
+
 Route::get('/', function () {
     return redirect()->route('phones.index');
 });
+Route::get('/email', [MailController::class, 'create']);
+Route::post('/email', [MailController::class, 'sendEmail'])->name('send.email');
+
+Route::get('/mail-phone/{id}', [MailController::class, 'mailPhone'])->name('phones.mail');
 
 Route::resource('phones', PhoneController::class);
 Route::get('/trash/phones', [PhoneController::class, 'showTrash'])->name('show.trash');

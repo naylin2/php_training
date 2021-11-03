@@ -8,6 +8,7 @@ use App\Http\Requests\CreateProductRequest;
 use App\Models\Phone;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Mail;
 
 class PhoneController extends Controller
 {
@@ -67,7 +68,16 @@ class PhoneController extends Controller
         $validated = $request->validated();
         $this->phoneInterface->addPhone($request);
 
-        return redirect()->route('phones.index');
+        $data = [
+            'name' => $request->name
+        ];
+        Mail::send('phones\createmail', $data, function ($message) {
+            $message->to('test@gmail.com')
+                ->subject('New Row Created');
+        });
+
+        return redirect()->route('phones.index')
+            ->with('success', 'Product created successfully.');
     }
 
     /**
